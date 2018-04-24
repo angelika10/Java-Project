@@ -26,20 +26,19 @@ public class Starter implements CommandLineRunner {
     public void run(String... strings) throws Exception{
 
 
-        libraryRepository.createLibrary("Biblioteka PW");
         libraryRepository.createLibrary("Biblioteka UW");
         libraryRepository.createLibrary("Biblioteka UKSW");
 
         Library libPw = libraryRepository.getLibrary(0);
-        Library libUW = new Library("Bliliteka pjatk", "sfasf", 44);
-        Library libUW2 = new Library("Bliliteka pw", "fghfhfch", 44);
+        Library libPJATK = new Library("Bliliteka PJATK", "Koszykowa 86, 02-008 Warszawa", 20);
+        Library libPW = new Library("Bliliteka PW", "Koszykowa 86, 02-008 Warszawa", 30);
 
          Book bok1 = new Book("jflasjdf", "dfs", 345);
         //bookRepository.createBook(bok1);
-        bookRepository. createBook("Potop", "Sienkiewicz", 800,libUW );
-        bookRepository.createBook("Ogniem i mieczem", "Kowalski", 300, libUW2);
-        bookRepository. createBook("thydtrh", "hdtfghdt", 800,libUW );
-        bookRepository.createBook("Ohgtgxh hgdf", "bhtdfthb", 300, libUW2);
+        bookRepository. createBook("Filary Ziemi", "Ken Follett ", 800,libPJATK );
+        bookRepository.createBook("Dziesięć poniżej zera", "Whitney Barbetti ", 300, libPJATK);
+        bookRepository. createBook("Trupia Farma. Nowe śledztwa", "Bill Bass", 400,libPW );
+        bookRepository.createBook("Zabić Sarai", "J.A. Redmerski ", 500, libPW);
 
     }
 
