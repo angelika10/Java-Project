@@ -1,0 +1,53 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Books list</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}" />
+
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:src="@{/webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+</head>
+<body>
+<div class="container">
+<table class="table">
+    <thead>
+    <tr>
+        <td>Nazwa książki</td>
+        <td>Autor</td>
+        <td>Ilość stron</td>
+        <td>Bibloteka</td>
+        <td>Edytuj dane</td>
+        <td>Usuń</td>
+        <td>Czy wypożyczona</td>
+    </tr>
+    </thead>
+    <tbody th:each=" book : ${books}">
+    <tr>
+        <td th:text="${book.name}"></td>
+        <td th:text="${book.author}"></td>
+        <td th:text="${book.numbersOfPage}"></td>
+        <td th:if="${book.library!=null}" th:text="${book.library.name}"></td>
+        <!--<td>-->
+        <!--<span th:if="${book.library == null}"><a th:href="${'assignLibrary?bookId='+book.id}">Brak biblioteki</a></span>-->
+        <!--<span th:if="${book.library!=null}" th:text="${book.library.getName()}"/>-->
+        <!--<span th:text="${book.library != null} ? ${book.library.getName()} " ></span>-->
+        <!--</td>-->
+        <!--<td th:text="${book.library?.getName()}" ></td>-->
+        <!--<td>-->
+            <!--&lt;!&ndash;<span th:if="${book.library == null}"><a th:href="${'assignLibrary?bookId='+book.id}">Dodaj bibliotekę</a></span>&ndash;&gt;-->
+            <!--<span th:if="${book.library!=null}" th:text="${book.library}"/>-->
+            <!--&lt;!&ndash;<span th:text="${book.library != null} ? ${book.library.getName()} " ></span>&ndash;&gt;-->
+        <!--</td>-->
+        <!--<td th:text="${book.isHired()}"></td>-->
+        <td><a th:href="${'/book?id='+book.id}">Edytuj</a></td>
+        <td><a th:href="${'book/delete/'+book.id}">Usuń</a> </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+<div class="row">
+    <a href="/newbook">Dodaj nową książkę</a>
+</div>
+</body>
+</html>
